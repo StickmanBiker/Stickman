@@ -1,0 +1,52 @@
+var NastavitveCanvas : Canvas;
+var infoOpen = false;
+var IsMuted = 0;
+var izklop;
+function Start () {
+
+}
+
+function Update () {
+	
+}
+
+function close(){
+		Application.Quit();
+}
+
+function SoundCheck()
+{
+	 IsMuted = PlayerPrefs.GetInt("Sound");
+
+	 if(AudioListener.volume > 0F)
+	 {
+	 	AudioListener.volume = 0F;
+	 }
+	 else
+	 {
+	 	AudioListener.volume = 1F;
+	 }
+
+	 /*if(IsMuted == 1)
+	 {
+	 	AudioListener.pause = false;
+	 }
+	 else
+	 {
+	 	AudioListener.pause = true;
+	 }*/
+
+}
+
+
+function Nastavitve () {
+	if(infoOpen == false)
+	{
+		infoOpen = true;
+		NastavitveCanvas.enabled = true;
+	}
+	else{
+		infoOpen = false;
+		NastavitveCanvas.enabled = false;
+	}
+};
