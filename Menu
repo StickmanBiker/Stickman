@@ -1,0 +1,16 @@
+using UnityEngine;
+using System.Collections;
+
+public class menu : MonoBehaviour {
+
+	public GameObject Loading;
+	public GameObject lodanje;
+	public void LoadScene(int play)
+	{
+		Loading.SetActive (true);
+		lodanje.SetActive (true);
+		Application.LoadLevel (play);
+	}
+	
+
+}
