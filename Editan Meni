@@ -1,0 +1,60 @@
+var NastavitveCanvas : Canvas;
+var infoOpen = false;
+var IsMuted = 0;
+var izklop;
+var zacetek;
+function Start () {
+   if(!PlayerPrefs.HasKey("Sound")) PlayerPrefs.SetInt("Sound",0);
+   zacetek = PlayerPrefs.GetInt("Sound");
+   AudioListener.volume = zacetek;
+}
+
+function Update () {
+	
+}
+
+function close(){
+        
+		Application.Quit();
+}
+
+function SoundCheck()
+{
+	 //IsMuted = PlayerPrefs.GetInt("Sound");
+     
+     if(AudioListener.volume > 0)
+	 {
+	 	AudioListener.volume = 0;
+        PlayerPrefs.SetInt("Sound", AudioListener.volume);
+	 }
+	 else
+	 {
+	 	AudioListener.volume = 1;
+        PlayerPrefs.SetInt("Sound", AudioListener.volume);
+	 }
+
+      
+     
+	 /*if(IsMuted == 1)
+	 {
+	 	AudioListener.pause = false;
+	 }
+	 else
+	 {
+	 	AudioListener.pause = true;
+	 }*/
+
+}
+
+
+function Nastavitve () {
+	if(infoOpen == false)
+	{
+		infoOpen = true;
+		NastavitveCanvas.enabled = true;
+	}
+	else{
+		infoOpen = false;
+		NastavitveCanvas.enabled = false;
+	}
+};
