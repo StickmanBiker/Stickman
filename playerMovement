@@ -1,0 +1,111 @@
+using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
+
+public class player : MonoBehaviour {
+	
+	private float inputDirection; //X 
+	private float b=0;
+	private float vertical;      //y
+	private float speed = 30.0f;
+	private float gravity= 20.0f;
+	public float a=0;
+	public bool doublejump=false;
+
+	private CharacterController controler;
+
+	//private float up;
+	//(float,float,float)
+	private Vector3 moveVector;
+	public Button gumb;
+	public Button gumb2;
+	void Start () {
+		controler = GetComponent<CharacterController>();
+		Button btn = gumb.GetComponent<Button> ();
+		btn.onClick.AddListener (moveR);
+
+		Button btn2 = gumb2.GetComponent<Button> ();
+		btn2.onClick.AddListener (moveL);
+	
+	
+	}
+
+	public void moveR (){
+		if (a >= 0) {
+			a = a + 1;
+		} else {
+			a = 1;
+		}
+		//Debug.Log ("STISNO");
+
+	}
+	public void moveL (){
+		if (a <= 0) {
+			a = a - 1;
+		} else {
+			a = -1;
+		}
+	}
+
+	void Update () {
+		
+		b = Input.GetAxis ("Horizontal") * speed;
+		//Debug.Log (b);
+		if (b > 0) {
+			
+			if (a < 0) {
+				a = a + 1;
+			} else {
+				a = a + 1;
+			}
+		} else if(b < 0){
+			a = a-1;
+			if (a > 0) {
+				a = a - 1;
+			} else {
+				a = a - 1;
+			}
+		}
+
+
+		//SMER--------------------------------
+		inputDirection =  a * speed;
+
+		//up = Input.GetAxis ("Vertical") * speed;
+
+
+		//gravitacija-------------------------------
+		if (controler.isGrounded) {
+		
+			vertical = 0;
+
+			////Jump----------------------------------
+			if (Input.GetKeyDown (KeyCode.Space)) {
+				//Debug.Log ("SPACE!!!!");
+				vertical = 700;
+				doublejump = true;
+			}
+			//////////////////////////////////////////
+
+		} else {
+			if (doublejump) {
+				////Jump----------------------------------
+				if (Input.GetKeyDown (KeyCode.Space)) {
+					//Debug.Log ("SPACE!!!!");
+					vertical = 500;
+					doublejump = false;
+				}
+			}
+			//////////////////////////////////////////
+
+			vertical -= gravity;
+
+		}
+		///////////////////////////////////////
+		moveVector = new Vector3 (inputDirection, vertical, 0);
+		controler.Move(moveVector*Time.deltaTime);//deltatime narei enak cajt 
+
+
+
+	}
+}
