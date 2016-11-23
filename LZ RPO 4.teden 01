@@ -1,0 +1,16 @@
+Opravljena naloga: Import statičnih modelov v unity;
+
+
+Težava: Modeli so se importali brez tekstur
+
+Rešitev: http://answers.unity3d.com/questions/983465/importing-blender-model-with-textures-unity-5.html
+
+
+Težava: Modeli niso bili ustreznih velikosti da bi ustrezali terenu
+
+Rešitev: Resize
+
+Porabljen čas: 35min
+
+
+
