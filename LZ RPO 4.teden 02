@@ -14,7 +14,8 @@ Rešitev: Napaka v materialu (napačen material)
 
 Težava: V Unity se material ne uvozi
 
-Rešitev: ?
+Rešitev: Očitno je prišlo do napak pri UV Unwrappingu.
+https://wiki.blender.org/index.php/Doc:2.4/Manual/Textures/Mapping/UV/Unwrapping
 
 
 Težava: V Unity se ne uvozi animacija (pravilno)
@@ -22,4 +23,4 @@ Težava: V Unity se ne uvozi animacija (pravilno)
 Rešitev: ?
 
 
-Porabljen čas: 1h 30min
+Porabljen čas: 2h
