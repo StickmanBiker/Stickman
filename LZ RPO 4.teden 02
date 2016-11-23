@@ -1,0 +1,25 @@
+Naloga: Kreiranje finish flag zastavice ki bo na koncu vsakega levela.
+
+
+Težava: Objekt Wind ne vpliva na animacijo zastave
+
+Rešitev: Različna layerja, slabo centriranje, povečana moč...
+
+
+Težava: Tekstura se ne aplicira pravilno (link: https://s15.postimg.org/rcwtpe9gb/Screenshot_52.png )
+
+Rešitev: Napaka v materialu (napačen material)
+
+
+
+Težava: V Unity se material ne uvozi
+
+Rešitev: ?
+
+
+Težava: V Unity se ne uvozi animacija (pravilno)
+
+Rešitev: ?
+
+
+Porabljen čas: 1h 30min
