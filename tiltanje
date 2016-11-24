@@ -1,0 +1,63 @@
+using UnityEngine.UI;
+using System.Collections;
+
+public class tilt : MonoBehaviour {
+	private float speed = 30.0f;
+	public float a=0;
+	public float c=0;
+	public Transform player;
+	private CharacterController controler;
+
+	public Button gumb3;
+	public Button gumb4;
+	public GameObject skola;
+
+	// Use this for initialization
+	void Start () {
+		Button btn3 = gumb3.GetComponent<Button> ();
+		btn3.onClick.AddListener (levo);
+		Button btn4 = gumb4.GetComponent<Button> ();
+		btn4.onClick.AddListener (desno);
+		skola = GameObject.Find("sprednakola");
+
+	}
+	public void levo (){
+		if (c == 0) {
+			c = c + 3;
+		} else {
+			c = 0;
+		}
+		//Debug.Log ("STISNO");
+
+	}
+	public void desno (){
+		
+		if (c == 0) {
+			c = c - 3 ;
+		} else {
+			c = 0;
+		}
+		//Debug.Log ("STISNO");
+
+	}
+	// Update is called once per frame
+	void Update () {
+		Vector3 movement = new Vector3 (Input.acceleration.x, 0.0f, 0.0f);
+		if (Input.GetAxis ("tilt") > 0) {
+			a = a + Input.GetAxis ("tilt") + Input.acceleration.x + c + 3;
+
+		} else if (Input.GetAxis ("tilt") < 0) {
+			a = a + Input.GetAxis ("tilt") + Input.acceleration.x + c - 3;
+
+		} else {
+			a = a + Input.GetAxis ("tilt") + Input.acceleration.x + c;
+		}
+		//movement = new Vector3 (a, 0.0f, 0.0f);
+		//GetComponent<Rigidbody>().velocity = movement * speed;
+		//if (controler.isGrounded) {
+		//vertical = skola.transform.position.y;
+		player.transform.rotation = Quaternion.Euler (0.0f,180.0f, a-skola.transform.position.y);
+		//}
+		//controler.height= 100;
+	}
+}
